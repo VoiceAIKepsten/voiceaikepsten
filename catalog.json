@@ -1,0 +1,36 @@
+
+{
+"company": {
+"name": "Kepsten Cleaning",
+"currency": "CAD",
+"timezone": "America/Toronto"
+},
+"services": {
+"standard_home_clean": {
+"name": "Standard Home Cleaning",
+"price_cad": 149,
+"duration_min": 120,
+"description": "General cleaning of kitchen, bathrooms, living areas and bedrooms."
+},
+"deep_clean": {
+"name": "Deep Cleaning",
+"price_cad": 299,
+"duration_min": 240,
+"description": "Detailed scrubbing of kitchen & bathrooms, baseboards, inside appliances."
+},
+"move_in_out": {
+"name": "Move In/Out Cleaning",
+"price_cad": 349,
+"duration_min": 300,
+"description": "Empty home deep clean before move in/out."
+},
+"office_clean": {
+"name": "Office Cleaning (Small)",
+"price_cad": 199,
+"duration_min": 180,
+"description": "Small office spaces up to ~1500 sq ft."
+},
+"carpet_shampoo": {
+"name": "Carpet Shampooing",
+"price_cad": 129
+}}}

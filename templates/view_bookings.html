@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmed Bookings</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e6f0ff;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        background: #007BFF;
+        color: white;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #666;
+        content: attr(data-label);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Confirmed Bookings</h1>
+  <table>
+    <thead>
+      <tr>
+        {% for header in headers %}
+          <th>{{ header }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+        <tr>
+          {% for i in range(headers|length) %}
+            <td data-label="{{ headers[i] }}">{{ row[i] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

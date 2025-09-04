@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepsten Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        p {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 14px;
+            background-color: #4f46e5;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3730a3;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Kepsten Services</h1>
+        <p>Book a service or view your request confirmations</p>
+        <a href="/form" class="btn">📝 Fill Booking Form</a>
+        <a href="/view-bookings" class="btn">📄 View Responses</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Request Service</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f7f8;
+      color: #333;
+      padding: 20px;
+    }
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .success-message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Request a Service</h2>
+    <form id="serviceForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number (with +91 etc.)" required>
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option value="plumbing">Plumbing</option>
+        <option value="cleaning">Cleaning</option>
+        <option value="electrical">Electrical</option>
+      </select>
+      <textarea name="message" placeholder="Describe your request..." required></textarea>
+      <button type="submit">Submit Request</button>
+      <div id="success" class="success-message" style="display: none;">✅ Request submitted! We'll call you shortly.</div>
+    </form>
+  </div>
+
+<script>
+  document.getElementById('serviceForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // ✅ Save to Google Sheets
+      await fetch("/form_submit", {
+        method: 'POST',
+        
+        body: new FormData(form)
+      });
+
+      /*
+      // ❌ Temporarily disabled: Trigger the call
+      const callResponse = await fetch('/trigger_call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await callResponse.json();
+
+      if (!result.success) {
+        alert("❌ Call Failed: " + result.error);
+        return;
+      }
+      */
+
+      // ✅ Show success message
+      document.getElementById('success').style.display = 'block';
+      form.reset();
+
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    }
+  });
+</script>
+
+</body>
+</html>

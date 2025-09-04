@@ -1,0 +1,8 @@
+<Response>
+  <Gather input="speech" timeout="5" speechTimeout="auto" action="/gather" method="POST">
+    <Say voice="Polly.Joanna" language="en-US">
+      You can speak now. I'm listening.
+    </Say>
+  </Gather>
+  <Say>I didn't hear anything.</Say>
+</Response>

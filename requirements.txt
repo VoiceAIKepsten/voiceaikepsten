@@ -1,0 +1,22 @@
+# Core
+Flask==3.0.3
+Flask-Cors==4.0.0
+flask-sock==0.6.0
+python-dotenv==1.0.1
+
+# Twilio
+twilio==9.2.3
+
+# WebSockets (async client)
+websockets==15.0.1
+
+# Google Calendar API
+google-api-python-client==2.146.0
+google-auth==2.34.0
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+
+# SQLite (builtin in Python, no need to install separately)
+
+# Extra utilities
+requests==2.32.3
